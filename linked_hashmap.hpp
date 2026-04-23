@@ -218,13 +218,17 @@ public:
 			return node == rhs.node;
 		}
 
-		bool operator==(const const_iterator &rhs) const;
+		bool operator==(const const_iterator &rhs) const {
+			return node == rhs.node;
+		}
 
 		bool operator!=(const iterator &rhs) const {
 			return node != rhs.node;
 		}
 
-		bool operator!=(const const_iterator &rhs) const;
+		bool operator!=(const const_iterator &rhs) const {
+			return node != rhs.node;
+		}
 
 		value_type* operator->() const noexcept {
 			return node->data;
@@ -238,6 +242,7 @@ public:
 	private:
 		Node *node;
 		const linked_hashmap *map;
+		friend class iterator;
 	public:
 		using difference_type = std::ptrdiff_t;
 		using value_type = typename linked_hashmap::value_type;
