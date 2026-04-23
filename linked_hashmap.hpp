@@ -215,19 +215,19 @@ public:
 		}
 
 		bool operator==(const iterator &rhs) const {
-			return node == rhs.node;
+			return node == rhs.node && map == rhs.map;
 		}
 
 		bool operator==(const const_iterator &rhs) const {
-			return node == rhs.node;
+			return node == rhs.node && map == rhs.map;
 		}
 
 		bool operator!=(const iterator &rhs) const {
-			return node != rhs.node;
+			return node != rhs.node || map != rhs.map;
 		}
 
 		bool operator!=(const const_iterator &rhs) const {
-			return node != rhs.node;
+			return node != rhs.node || map != rhs.map;
 		}
 
 		value_type* operator->() const noexcept {
@@ -297,11 +297,11 @@ public:
 		}
 
 		bool operator==(const const_iterator &rhs) const {
-			return node == rhs.node;
+			return node == rhs.node && map == rhs.map;
 		}
 
 		bool operator!=(const const_iterator &rhs) const {
-			return node != rhs.node;
+			return node != rhs.node || map != rhs.map;
 		}
 
 		const value_type* operator->() const noexcept {
